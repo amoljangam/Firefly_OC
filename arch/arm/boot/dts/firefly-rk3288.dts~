@@ -64,7 +64,7 @@
 		compatible = "rockchip_pwm_regulator";
 		pwms = <&pwm1 0 2000>;
 		rockchip,pwm_id= <1>;
-		rockchip,pwm_voltage_map= <925000 950000 975000 1000000 1025000 1050000 1075000 1100000 1125000 1150000 1175000 1200000 1225000 1250000 1275000 1300000 1325000 1350000 1375000 1400000>;
+		rockchip,pwm_voltage_map= <925000 950000 975000 1000000 1025000 1050000 1075000 1100000 1125000 1150000 1175000 1200000 1225000 1250000 1275000 1300000 1325000 1350000 1375000 1400000 1425000>;
 		rockchip,pwm_voltage= <1100000>;
 		rockchip,pwm_min_voltage= <925000>;
 		rockchip,pwm_max_voltage= <1400000>;
@@ -77,7 +77,7 @@
 				regulator-compatible = "pwm_dcdc1";
 				regulator-name= "vdd_logic";
 				regulator-min-microvolt = <925000>;
-				regulator-max-microvolt = <1400000>;
+				regulator-max-microvolt = <1425000>;
 				regulator-always-on;
 				regulator-boot-on;
 			};
@@ -660,13 +660,13 @@
 &clk_gpu_dvfs_table {
 	operating-points = <
 		/* KHz    uV */
-//		100000 900000
-		200000 900000
-		300000 950000
-		420000 1100000
+	//	100000 900000
+		266000 1000000
+		350000 1050000
+		400000 1100000
 		500000 1150000
 		600000 1250000
-		700000 1325000
+		700000 1300000
 		>;
 	status="okay";
 };
@@ -674,20 +674,20 @@
 &clk_ddr_dvfs_table {
 	operating-points = <
 		/* KHz    uV */
-		200000 1075000
-		300000 1075000		
-		456000 1125000
+		200000 1075000		
+		400000 1125000
 		533000 1150000
 		667000 1200000
+		800000 1225000
 		>;
 
 	freq-table = <
 		/*status		freq(KHz)*/
-		SYS_STATUS_NORMAL	456000
+		SYS_STATUS_NORMAL	533000
 		SYS_STATUS_SUSPEND	200000
 		//SYS_STATUS_VIDEO_1080P  240000
-		SYS_STATUS_VIDEO_4K     533000
-		SYS_STATUS_PERFORMANCE  667000
+		SYS_STATUS_VIDEO_4K     667000
+		SYS_STATUS_PERFORMANCE  800000
 		//SYS_STATUS_BOOST	324000
 		//SYS_STATUS_ISP		400000
 		>;
